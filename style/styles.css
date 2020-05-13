@@ -31,10 +31,8 @@ p {
 div {
   position: absolute;
   border: 1px solid black;
-  width: 40vw;
-  height: 10vw;
-  margin-top: 45vw;
-  margin-left: 30vw;
+  width: 99vw;
+  height: 98vh;
   overflow: scroll;
 }
 

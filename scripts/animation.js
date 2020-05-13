@@ -19,7 +19,13 @@ $(document).ready(function() {
   });
 });
 
-// Basic scroll controller:
+
+
+// Scroll handler - Attempt 2: motion is binded to 'scroll wheel inside div'
+
+
+
+// Scroll handler - Attempt 1: motion is binded to 'mouse wheel'
 // If scroll offset is positive (i.e. scroll up), move forward in animation by 1 gOffset.
 // If scroll offset is negative (i.e. scroll down),  move backward by 1 gOffset
 function scrollAnimation(scrollDirection) {
