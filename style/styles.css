@@ -28,6 +28,16 @@ p {
   margin-left: 45vw;
 }
 
+div {
+  position: absolute;
+  border: 1px solid black;
+  width: 40vw;
+  height: 10vw;
+  margin-top: 45vw;
+  margin-left: 30vw;
+  overflow: scroll;
+}
+
 .offs1 {margin-top: 7vw;}
 .offs2 {margin-top: 9.5vw;}
 
