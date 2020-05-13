@@ -3,9 +3,8 @@
 
 const gOffset = window.innerWidth / 300; // 1% of viewport width in pixels
 const initialMargins = ["6vw", "15.9vw", "24vw", "0vw", "11.5vw", "22.5vw"];
-var lastScrollVal = 0; // after some elapsed time, calculate largest scroll value in burst (?)
-var bufferLeft = 0; //
-var bufferRight = 0
+var leftMarginMax = 40.0; // 40vw is limit
+var leftMarginMin = 8.8;
 
 $(document).ready(function() {
   setMargins();
@@ -36,8 +35,18 @@ $(document).ready(function() {
 // Note: better execution if offset is not static value. Rather if offset proportional to scroll value.
 // Note: we manipulate the 'left-margin' of both name objects
 function scrollAnimation(scrollDirection) {
+  var limitCheck = 100*(getMargin('#lastname3'))/window.innerWidth; // left-margin in vw of lastname3, 'er'
   var offset = -1 * (scrollDirection/100) * gOffset;
   //console.log(offset);
+  if (offset > 0 && limitCheck >= leftMarginMax) {
+    console.log(limitCheck);
+    return;
+  }
+  if (offset < 0 && limitCheck <= leftMarginMin) {
+    console.log(limitCheck);
+    return;
+  }
+
   var i;
   for (i=0; i<3; i++) { // Works because each name is split into 3 units
     // Parse string -> to int -> add value -> to string -> append 'px' to end
@@ -74,7 +83,9 @@ function setMargins(newMargins) {
   }
 }
 
-
+$(document).click(function() {
+  console.log(100*(getMargin('#lastname3'))/window.innerWidth + "vw");
+});
 
 
 /* End */
