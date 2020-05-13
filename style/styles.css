@@ -30,7 +30,7 @@ p {
 
 div {
   position: absolute;
-  border: 1px solid black;
+  border: none;
   width: 99vw;
   height: 98vh;
   overflow: scroll;
