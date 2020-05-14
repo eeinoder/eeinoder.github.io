@@ -1,5 +1,6 @@
 html {
   background: url('imgs/gradient1.png') no-repeat center center fixed;
+  transition: background 0.8s linear;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -10,6 +11,11 @@ html {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   width: 50%;
+}
+
+.project {
+  margin-top: 40vw;
+  margin-left: 5vw;
 }
 
 h1 {
@@ -45,6 +51,7 @@ div {
 .lvl4 {z-index: 4;}
 .lvl5 {z-index: 5;}
 .lvl6 {z-index: 6;}
+.lvl6 {z-index: 7;}
 
 .abs {position: absolute;}
 .hid {opacity: 0;}
