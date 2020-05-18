@@ -1,6 +1,5 @@
 html {
-  background: url('imgs/gradient1.png') no-repeat center center fixed,
-              url('imgs/gradient4.png') no-repeat center center fixed;
+  background: url('imgs/gradient1.png') no-repeat center center fixed;
   transition: background 0.8s linear;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -29,10 +28,22 @@ h2 {
   color: white;
 }
 
-p {
+p1 {
   font-size:3vw;
   margin-top: 25vw;
   margin-left: 45vw;
+}
+
+p2 {
+  position: absolute;
+  background: url('imgs/downarrow3.svg') no-repeat center center;
+  background-size: 5vw 5vw;
+  width: 5vw;
+  height: 5vw;
+  padding-top: 15vw;
+  padding-left: 25vw;
+  margin-top: 55vw;
+  margin-left: 35vw;
 }
 
 div {
@@ -65,3 +76,7 @@ div {
   -o-user-select: none;
   user-select: none;
 }
+
+.filter-gray{
+        filter: invert(50%) brightness(150%);
+    }

@@ -1,27 +1,55 @@
 // Document ready: slide "Einoder" right and fade in AND move down "Welcome" text
 // Scroll effects/animations:
 // TODO: if much time elapsed without activity, reload page (???)
+// TODO: to address skipping issues when scrolling too fast, change scrollPos-to-margin
+// scale factor
 
 //const gOffset = window.innerWidth / 500; // 1% of viewport width in pixels
 const initialMargins = [6, 15.9, 24, 0, 11.5, 22.5]; // in vw units
 const endMargins = [-11.46, -1.56, 6.54, 17.46, 28.96, 39.96];
+const autoScrollLimit = 1000;
 var backgroundImage = 1;
+var isButtonDiscovered = 0; // set to 0 before user hovers into scroll button
 //var leftMarginMax = 40.0; // 40vw is max for left-margin of lastname3
 //var leftMarginMin = 8.8;  // 8.8vw is max for left-margin of lastname3
 
 $(document).ready(function() {
   setMargins();
-  /*$(window).bind('mousewheel DOMMouseScroll', function(e){
-      //mousewheelAnimate(e.originalEvent.wheelDelta);
-      //TODO: add feature - if lastname3 gets to point backwards (i.e crosses threshold)
-  });*/
+
+  // Scrolling inside 'div' advances scroll animation
   $('div').scroll(function() {
     var scrollPos = $("div").scrollTop();
-    //console.log(scrollPos);
+    console.log(scrollPos)
     scrollbarAnimate(scrollPos); // 0-875, 875-1000, 1000-1250
-    //shiftBackground(scrollPos);  // 875-
   });
-  $('p').animate({opacity:1},2500);
+
+  // 'Welcome' message fades in
+  $('p1').animate({opacity:1},2500);
+
+  // After 3 seconds downarrow is made visible if user has not discovered button
+  setTimeout(function() {
+    if (isButtonDiscovered === 0) {
+      $('p2').animate({opacity:1},400);
+    }
+  }, 3000);
+
+  // Fade in/out on hover over downarrow
+  $('p2').hover(function() {
+    isButtonDiscovered = 1;
+    $('p2').animate({opacity:1},200);
+  }, function() {
+    $('p2').animate({opacity:0},200);
+  });
+
+  // Click down arrow will smoothly move down scroll bar
+  $('p2').click(function() {
+    $("div").animate({scrollTop:2000},2000);
+  });
+
+  //
+  $('#project1').click(function() {
+    window.open("https://eeinoder.github.io/Geo-Game/");
+  });
 });
 
 
@@ -54,6 +82,8 @@ function scrollbarAnimate(scrollPos) {
     }
     // Move 'Nicolae' down to 'Einoder''s level (7.5vw to 9vw margin-top)
     else if (scrollPos < 1000) {
+      // Reset/fade-in project names list
+      // TODO:
       // Reset background image
       if (backgroundImage === 2) {
         $('html').css('background-image', 'url(style/imgs/gradient1.png)');
@@ -84,8 +114,11 @@ function scrollbarAnimate(scrollPos) {
       var endTopMargin = getMargin(lTarget, 'top');
       $(fTarget).css("margin-top", endTopMargin+'vw');
 
+      // Fade out project names
+      //TODO:
+
       if (backgroundImage === 1) {
-        $('html').css('background-image', 'url(style/imgs/gradient4.png)');
+        $('html').css('background-image', 'url(style/imgs/gradient3.png)');
         backgroundImage = 2;
       }
       if (scrollPos < 1256) {
@@ -151,6 +184,7 @@ function mousewheelAnimate(scrollDirection) {
     $(fTarget).css("margin-left", newMarginFirstnm);
   }
 } */
+
  /* HELPER: return float value of left-margin in vw  */
 function getMargin(targetName, marginType) {
   var margin = $(targetName).css("margin-"+marginType);
@@ -207,8 +241,8 @@ $(function() {
 
 /* TESTING */
 $(window).click(function() {
-  console.log(100*(getMargin('#lastname3', 'left'))/window.innerWidth + "vw");
-  window.open("https://eeinoder.github.io/Geo-Game/");
+  //console.log(100*(getMargin('#lastname3', 'left'))/window.innerWidth + "vw");
+  //window.open("https://eeinoder.github.io/Geo-Game/");
 });
 
 
