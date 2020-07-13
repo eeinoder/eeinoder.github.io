@@ -86,7 +86,7 @@ function scrollbarAnimate(scrollPos) {
       // TODO:
       // Reset background image
       if (backgroundImage === 2) {
-        $('html').css('background-image', 'url(style/imgs/gradient1.png)');
+        //$('html').css('background-image', 'url(style/imgs/gradient1.png)');
         backgroundImage = 1;
       }
       // Snap names to end left-margin positions:
@@ -118,7 +118,7 @@ function scrollbarAnimate(scrollPos) {
       //TODO:
 
       if (backgroundImage === 1) {
-        $('html').css('background-image', 'url(style/imgs/gradient3.png)');
+        //$('html').css('background-image', 'url(style/imgs/gradient3.png)');
         backgroundImage = 2;
       }
       if (scrollPos < 1256) {
