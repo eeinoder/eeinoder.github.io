@@ -118,7 +118,7 @@ function scrollbarAnimate(scrollPos) {
       //TODO:
 
       if (backgroundImage === 1) {
-        $('html').css('background', 'url(style/imgs/gradient3.png)');
+        $('html').css('background-image', 'url(style/imgs/gradient3.png)');
         backgroundImage = 2;
       }
       if (scrollPos < 1256) {
