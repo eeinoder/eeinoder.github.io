@@ -1,6 +1,6 @@
 html {
   background: url('imgs/gradient1.png') no-repeat center center fixed;
-  transition: background 0.8s ease-in-out;
+  transition: background 0.8s linear;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
